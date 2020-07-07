@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_move_activity_object -> {
                 val person = Person (
                     "Umu Khoirunnisa",
-                    5,
+                    24,
                     "khoirunnisaumu@gmail.com",
                     "Purbalingga"
                 )
