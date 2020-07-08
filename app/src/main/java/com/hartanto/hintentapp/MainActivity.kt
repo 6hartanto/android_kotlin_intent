@@ -1,6 +1,7 @@
 package com.hartanto.hintentapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,14 +13,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnMoveActivity: Button = findViewById(R.id.btn_move_activity)
+        val btnMoveActivity:Button = findViewById(R.id.btn_move_activity)
         btnMoveActivity.setOnClickListener(this)
 
-        val btnMoveWithDataActivity: Button = findViewById(R.id.btn_move_activity_data)
+        val btnMoveWithDataActivity:Button = findViewById(R.id.btn_move_activity_data)
         btnMoveWithDataActivity.setOnClickListener(this)
 
-        val btnMoveWithObject: Button = findViewById(R.id.btn_move_activity_object)
+        val btnMoveWithObject:Button = findViewById(R.id.btn_move_activity_object)
         btnMoveWithObject.setOnClickListener(this)
+
+        val btnDialPhone:Button = findViewById(R.id.btn_dial_number)
+        btnDialPhone.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -47,6 +51,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val moveWithObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
                 moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
                 startActivity(moveWithObjectIntent)
+            }
+
+            R.id.btn_dial_number -> {
+                val phoneNumber = "082386672228"
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
+                startActivity(dialPhoneIntent)
             }
         }
     }
